@@ -1,5 +1,7 @@
 package com.example.navigation.view
 
+import android.widget.Button
+import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,7 +27,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.navigation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,7 +54,17 @@ fun TampilData(
             verticalArrangement = Arrangement.SpaceBetween) {
             Column(modifier = Modifier.padding(dimensionResource(id=R.dimen.padding_medium)),
                 verticalArrangement = Arrangement.spacedBy (dimensionResource(id = R.dimen.padding_small))) {
+                items.forEach { item ->
+                    Column {
+                        Text(text = item.first.uppercase(), fontSize = 16.sp)
+                        Text(text = item.second, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Cursive, fontSize = 22.sp)
+                    }
+                    HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Button(
 
+                )
             }
         }
     }
